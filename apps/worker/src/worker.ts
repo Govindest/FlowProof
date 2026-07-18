@@ -3,6 +3,13 @@ import { executeRun } from "./runner";
 
 let active = true;
 
+export function publicWorkerFailure(error: unknown): string {
+  const message = error instanceof Error ? error.message : String(error);
+  if (/browserType\.launch|executable doesn't exist|chromium/i.test(message))
+    return "Browser worker could not start Chromium. Review worker configuration and deployment logs.";
+  return "Workflow execution failed before an evidence packet could be completed. Review worker logs.";
+}
+
 export async function processNextJob(): Promise<boolean> {
   const queued = await db.job.findFirst({
     where: { status: "QUEUED" },
@@ -21,18 +28,18 @@ export async function processNextJob(): Promise<boolean> {
       data: { status: "COMPLETE" },
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
+    const message = publicWorkerFailure(error);
     await db.$transaction([
       db.job.update({
         where: { id: queued.id },
-        data: { status: "FAILED", error: message.slice(0, 1000) },
+        data: { status: "FAILED", error: message },
       }),
       db.run.update({
         where: { id: queued.runId },
         data: {
           status: "FAIL",
           completedAt: new Date(),
-          explanation: message.slice(0, 1000),
+          explanation: message,
         },
       }),
     ]);
