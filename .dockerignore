@@ -1,0 +1,15 @@
+.git
+.env
+.env.*
+!.env.example
+node_modules
+**/node_modules
+.next
+**/.next
+artifacts
+playwright-report
+test-results
+coverage
+prisma/*.db
+prisma/*.db-journal
+docs

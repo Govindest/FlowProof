@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@flowproof/core": ["packages/core/src/index.ts"],
+      "@flowproof/github": ["packages/github/src/index.ts"],
+      "@flowproof/fixtures": ["packages/fixtures/src/index.ts"],
+      "@flowproof/worker": ["apps/worker/src/index.ts"]
+    }
+  },
+  "include": [
+    "apps/**/*.ts",
+    "apps/**/*.tsx",
+    "packages/**/*.ts",
+    "prisma/**/*.ts",
+    "tests/**/*.ts"
+  ]
+}

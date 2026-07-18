@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Runbook {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String
+  yaml        String
+  severity    String
+  createdAt   DateTime @default(now())
+  runs        Run[]
+}
+
+model Run {
+  id               String    @id @default(cuid())
+  runbookId        String
+  runbook          Runbook   @relation(fields: [runbookId], references: [id], onDelete: Cascade)
+  status           String    @default("QUEUED")
+  startedAt        DateTime?
+  completedAt      DateTime?
+  durationMs       Int?
+  stepsJson        String    @default("[]")
+  invariantsJson   String    @default("[]")
+  resultJson       String?
+  explanation      String?
+  evidenceMarkdown String?
+  issueDraftJson   String?
+  artifactPath     String?
+  tracePath        String?
+  createdAt        DateTime  @default(now())
+  job              Job?
+
+  @@index([runbookId, createdAt])
+}
+
+model Job {
+  id        String    @id @default(cuid())
+  runId     String    @unique
+  run       Run       @relation(fields: [runId], references: [id], onDelete: Cascade)
+  status    String    @default("QUEUED")
+  error     String?
+  createdAt DateTime  @default(now())
+  claimedAt DateTime?
+}
+
+model Regression {
+  key       String   @id
+  enabled   Boolean  @default(false)
+  updatedAt DateTime @updatedAt
+}
+
+model Setting {
+  key   String @id
+  value String
+}
+
+model DemoState {
+  key   String @id
+  value String
+}

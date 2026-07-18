@@ -1,0 +1,15 @@
+node_modules
+.next
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.db
+*.db-journal
+artifacts/runs/*
+!artifacts/runs/.gitkeep
+playwright-report
+test-results
+coverage
+.submission/

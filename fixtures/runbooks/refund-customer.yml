@@ -1,0 +1,77 @@
+version: 1
+name: Refund Customer
+slug: refund-customer
+description: Refund a paid order, notify its customer, and leave an auditable internal support note.
+targetApps:
+  - billing
+  - internal-crm
+credentialsRef: demo-local
+severity: high
+preconditions:
+  - id: order-paid
+    name: Order starts paid
+    endpoint: /api/demo/billing
+    path: order.status
+    operator: equals
+    expected: paid
+steps:
+  - id: open-order
+    name: Open order ORD-1042
+    action: goto
+    path: /billing
+  - id: refund
+    name: Issue full refund
+    action: click
+    selector: '[data-testid="issue-refund"]'
+  - id: confirm-refund
+    name: Confirm refunded status
+    action: assertText
+    selector: '[data-testid="refund-status"]'
+    expected: Refunded
+  - id: send-confirmation
+    name: Send customer confirmation
+    action: click
+    selector: '[data-testid="send-confirmation"]'
+  - id: create-note
+    name: Create internal note
+    action: click
+    selector: '[data-testid="create-note"]'
+postconditions:
+  - Order status is refunded
+  - Customer confirmation is sent after refund
+  - Internal audit note exists
+invariants:
+  - id: refunded
+    name: Order status is refunded
+    endpoint: /api/demo/billing
+    path: order.status
+    operator: equals
+    expected: refunded
+  - id: confirmation-sent
+    name: Customer confirmation sent
+    endpoint: /api/demo/billing
+    path: order.confirmation
+    operator: equals
+    expected: true
+  - id: note-created
+    name: Internal note exists
+    endpoint: /api/demo/billing
+    path: order.note
+    operator: truthy
+  - id: sequence-valid
+    name: Refund occurred before confirmation
+    endpoint: /api/demo/billing
+    path: order.sequenceValid
+    operator: equals
+    expected: true
+requiredEvidence:
+  - screenshots
+  - trace
+  - invariant-results
+  - audit-record
+rollback:
+  instructions: Escalate reversal to Finance; never mutate payment state manually.
+  humanApprovalRequired: true
+escalation:
+  instructions: Open a Finance operations issue when any refund invariant fails.
+  humanApprovalRequired: true

@@ -1,0 +1,59 @@
+version: 1
+name: Access Policy Drift
+slug: access-policy-drift
+description: Remove a sensitive role binding and prove the target user can no longer open the forbidden page.
+targetApps:
+  - access-policy
+credentialsRef: demo-local
+severity: critical
+preconditions:
+  - id: editor-role
+    name: Target user starts as editor
+    endpoint: /api/demo/policy
+    path: role
+    operator: equals
+    expected: editor
+steps:
+  - id: open-policy
+    name: Open policy console
+    action: goto
+    path: /policy
+  - id: change-binding
+    name: Change role binding to viewer
+    action: click
+    selector: '[data-testid="change-binding"]'
+  - id: verify-page
+    name: Open forbidden page as target user
+    action: click
+    selector: '[data-testid="test-policy"]'
+  - id: confirm-forbidden
+    name: Confirm forbidden state
+    action: assertText
+    selector: '[data-testid="policy-result"]'
+    expected: 403 Forbidden
+postconditions:
+  - Target user has viewer role
+  - Protected page returns forbidden state
+invariants:
+  - id: viewer-role
+    name: Target user has viewer role
+    endpoint: /api/demo/policy
+    path: role
+    operator: equals
+    expected: viewer
+  - id: forbidden-state
+    name: Target user receives forbidden state
+    endpoint: /api/demo/policy
+    path: forbidden
+    operator: equals
+    expected: true
+requiredEvidence:
+  - screenshots
+  - trace
+  - invariant-results
+rollback:
+  instructions: Restore prior role only after Security approval.
+  humanApprovalRequired: true
+escalation:
+  instructions: Escalate effective-policy drift to Security with trace evidence.
+  humanApprovalRequired: true

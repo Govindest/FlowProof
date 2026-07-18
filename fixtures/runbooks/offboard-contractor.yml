@@ -1,0 +1,77 @@
+version: 1
+name: Offboard Contractor
+slug: offboard-contractor
+description: Disable contractor access across identity and source-control systems, then prove access is gone.
+targetApps:
+  - identity-admin
+  - mock-repository
+credentialsRef: demo-local
+severity: critical
+preconditions:
+  - id: identity-active
+    name: Contractor starts active
+    endpoint: /api/demo/identity
+    path: user.disabled
+    operator: equals
+    expected: false
+steps:
+  - id: open-identity
+    name: Open identity admin
+    action: goto
+    path: /identity
+  - id: disable-user
+    name: Disable Alex Morgan
+    action: click
+    selector: '[data-testid="disable-user"]'
+  - id: confirm-disabled
+    name: Confirm identity disabled
+    action: assertText
+    selector: '[data-testid="identity-status"]'
+    expected: Disabled
+  - id: revoke-github
+    name: Revoke repository access
+    action: click
+    selector: '[data-testid="revoke-github"]'
+  - id: test-login
+    name: Test contractor login
+    action: click
+    selector: '[data-testid="test-login"]'
+  - id: confirm-forbidden
+    name: Confirm dashboard is forbidden
+    action: assertText
+    selector: '[data-testid="login-result"]'
+    expected: Access denied
+postconditions:
+  - Identity is disabled
+  - Existing dashboard access is denied
+  - Repository membership is removed
+invariants:
+  - id: identity-disabled
+    name: Identity is disabled
+    endpoint: /api/demo/identity
+    path: user.disabled
+    operator: equals
+    expected: true
+  - id: dashboard-blocked
+    name: Disabled user cannot access dashboard
+    endpoint: /api/demo/identity
+    path: user.canAccess
+    operator: equals
+    expected: false
+  - id: membership-removed
+    name: Repository membership removed
+    endpoint: /api/demo/identity
+    path: githubMember
+    operator: equals
+    expected: false
+requiredEvidence:
+  - screenshots
+  - trace
+  - invariant-results
+  - audit-record
+rollback:
+  instructions: Re-enable identity only after manager and Security approval.
+  humanApprovalRequired: true
+escalation:
+  instructions: Escalate retained repository access to Security with the evidence packet.
+  humanApprovalRequired: true

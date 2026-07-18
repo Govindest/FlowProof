@@ -1,0 +1,11 @@
+{
+  "name": "@flowproof/core",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "@prisma/client": "^6.14.0",
+    "yaml": "^2.8.0",
+    "zod": "^3.25.0"
+  }
+}
