@@ -7,7 +7,7 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 
-RUN corepack enable && corepack prepare pnpm@10.14.0 --activate
+RUN corepack enable && corepack prepare pnpm@11.9.0 --activate
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json ./
 COPY apps/backend/package.json apps/backend/package.json

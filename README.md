@@ -60,7 +60,7 @@ See [EVALUATION.md](EVALUATION.md) and [`evaluation/results.json`](evaluation/re
 
 ## Local setup and commands
 
-Requirements: Node.js 22+, pnpm 10.14+, and 2GB free disk space for Chromium.
+Requirements: Node.js 22+, pnpm 11.9+, and 2GB free disk space for Chromium.
 Local development supports macOS and Linux. Windows users should use WSL2.
 Production uses the pinned Linux Playwright image in `Dockerfile`.
 

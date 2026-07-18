@@ -119,7 +119,7 @@ Run:
 pnpm verify:persistence
 ```
 
-Verified on 2026-07-18 with Node.js 24.16 and pnpm 10.14 on macOS. The script
+Verified on 2026-07-18 with Node.js 24.16 and pnpm 11.9 on macOS. The script
 built the demo target, started `pnpm start:railway` with production validation
 and a temporary persistent directory, created FAIL run
 `cmrpzvgyr0001jpqeqju2i7sr`, created repaired PASS run

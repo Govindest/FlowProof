@@ -2,7 +2,7 @@
   "name": "flowproof",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@11.9.0",
   "scripts": {
     "postinstall": "tsx scripts/postinstall.ts",
     "dev": "dotenv -e .env -- concurrently -k -n web,backend,demo,worker -c blue,cyan,magenta,green \"pnpm dev:web\" \"pnpm dev:backend\" \"pnpm --filter @flowproof/demo-suite dev\" \"pnpm dev:worker\"",
