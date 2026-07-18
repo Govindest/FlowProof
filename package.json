@@ -29,7 +29,7 @@
     "format:check": "prettier --check . --ignore-unknown"
   },
   "devDependencies": {
-    "@playwright/test": "^1.55.0",
+    "@playwright/test": "1.61.1",
     "@prisma/client": "^6.19.0",
     "@types/node": "^22.15.0",
     "concurrently": "^9.2.0",

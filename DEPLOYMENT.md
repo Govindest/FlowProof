@@ -193,7 +193,7 @@ Check Railway logs for the `FlowProof worker ready` line and confirm the worker 
 
 ### Chromium launch fails
 
-Confirm Railway built the repository Dockerfile. It uses the pinned `mcr.microsoft.com/playwright:v1.55.0-noble` image, which already contains the Chromium system dependencies.
+Confirm Railway built the repository Dockerfile. It uses the pinned `mcr.microsoft.com/playwright:v1.61.1-noble` image matching the pinned workspace Playwright packages, so the expected Chromium binary and Linux dependencies are present.
 
 ### GPT diagnosis fails
 

@@ -12,6 +12,6 @@
     "@flowproof/core": "workspace:*",
     "@flowproof/fixtures": "workspace:*",
     "@flowproof/github": "workspace:*",
-    "playwright": "^1.55.0"
+    "playwright": "1.61.1"
   }
 }
