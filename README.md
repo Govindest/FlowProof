@@ -4,9 +4,15 @@
 
 UI changes, policy drift, and missing side effects can silently break offboarding, refunds, and access reviews even when deployment tests stay green. FlowProof turns operational SOPs into executable assurance: queued Playwright runs, deterministic business invariants, screenshots, traces, and evidence-grounded GPT-5.6 diagnosis.
 
+**A browser action can appear successful while the intended business operation still fails.** FlowProof verifies the authoritative outcome, not only the visible click path.
+
 ![FlowProof failure report showing violated repository-access invariant and GPT-5.6 diagnosis](docs/flowproof-failure.png)
 
 Fastest demo:
+
+[Open the hosted FlowProof demo](https://flowproof-ten.vercel.app) — no login or credentials required.
+
+For a local run:
 
 ```bash
 pnpm setup
@@ -91,8 +97,7 @@ dashboard, API, demo targets, and worker.
 
 ## Judge testing
 
-Hosted URL: **pending Railway authentication and verified deployment**. No
-authentication is required by the product once deployed.
+Hosted URL: **[https://flowproof-ten.vercel.app](https://flowproof-ten.vercel.app)**. No authentication is required.
 
 1. Open the hosted Vercel dashboard and confirm **Execution backend online**.
 2. Click **Run failure demo**.
@@ -107,6 +112,8 @@ load. Chrome, Edge, Firefox, and Safari can use the dashboard on desktop or
 mobile, while browser execution itself uses server-side Chromium. All targets
 are seeded simulations. No real accounts, repositories, refunds, or policies
 are changed.
+
+The hosted execution plane reports health at [Railway `/health`](https://flowproof-production.up.railway.app/health). A verified hosted permission-drift FAIL is `cmrq53vgh0001s16sjxb7d75d`; its repaired PASS is `cmrq59vxj0004s16swi0m17t2`.
 
 ## GPT-5.6: two core product functions
 
@@ -202,6 +209,12 @@ It starts the real Railway supervisor twice against one temporary persistent
 directory, proves FAIL and repaired PASS records survive restart, reopens a
 screenshot, trace, JSON result, Markdown evidence, and issue draft, then
 removes only its temporary test directory.
+
+Hosted Railway persistence was also verified on 2026-07-18: FAIL run
+`cmrq4w7xp0001n07qrb31xhuq`, repaired PASS run
+`cmrq4wvre0004n07qmfa9mtbr`, their SQLite records, screenshot, trace, result
+JSON, evidence Markdown, and issue draft all remained accessible after a
+Railway service restart with the same `/data` volume.
 
 Production Docker setup after installing Docker Desktop, OrbStack, or another
 Docker-compatible runtime:

@@ -2,7 +2,7 @@
 
 ## 0:00–0:20 — Problem and product
 
-Open the public Vercel URL, or `http://localhost:3000` for the deterministic local demo. Confirm **Execution backend online** in the header.
+Open <https://flowproof-ten.vercel.app>, or `http://localhost:3000` for the deterministic local demo. Confirm **Execution backend online** in the header.
 
 > FlowProof is CI for business operations. Deployments can be green while offboarding, refunds, or access policies silently fail. FlowProof replays those workflows, verifies real business outcomes, and preserves proof.
 

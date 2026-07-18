@@ -1,12 +1,11 @@
 # FlowProof hosted demo video plan — 2:45 target
 
-Record only after both public services pass the judge path. Replace placeholders
-with verified URLs before recording:
+Both public services have passed the judge path. Record only from these verified URLs:
 
-- Dashboard: `<VERCEL_URL>`
-- Backend health: `<RAILWAY_URL>/health`
-- Backup FAIL report: `<VERCEL_URL>/runs/<SEEDED_FAIL_RUN_ID>`
-- Backup PASS report: `<VERCEL_URL>/runs/<SEEDED_PASS_RUN_ID>`
+- Dashboard: <https://flowproof-ten.vercel.app>
+- Backend health: <https://flowproof-production.up.railway.app/health>
+- Backup FAIL report: <https://flowproof-ten.vercel.app/runs/cmrq53vgh0001s16sjxb7d75d>
+- Backup PASS report: <https://flowproof-ten.vercel.app/runs/cmrq59vxj0004s16swi0m17t2>
 
 ## Browser setup
 

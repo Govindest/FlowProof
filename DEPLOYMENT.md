@@ -28,6 +28,13 @@ Store the result in the Railway and Vercel secret managers. Do not place it in a
 8. Redeploy. `pnpm start:railway` automatically runs `prisma migrate deploy`, ensures seed records exist without resetting prior data, and starts the API, demo targets, and worker.
 9. Verify `/health` and `/ready` before connecting Vercel.
 
+Verified production endpoints:
+
+- Dashboard: <https://flowproof-ten.vercel.app>
+- Railway API: <https://flowproof-production.up.railway.app>
+- Health: <https://flowproof-production.up.railway.app/health>
+- Readiness: <https://flowproof-production.up.railway.app/ready>
+
 Railway variables:
 
 ```env
@@ -129,8 +136,17 @@ the same SQLite and artifact paths, and reopened both records plus screenshot,
 remained repaired. The script removes only its own temporary directory after
 verification.
 
-No Docker-compatible runtime was installed on that machine, so no Docker image
-build, digest, container restart, or container persistence result is claimed.
+Railway remotely built the root Dockerfile successfully with image digest
+`sha256:8db83a09bb7076adfe1f8ae1cc7dcfc49c443426d93ceb263077255e4f213df0`.
+The hosted API returned all readiness checks healthy. Permission-drift FAIL run
+`cmrq4w7xp0001n07qrb31xhuq` and repaired PASS run
+`cmrq4wvre0004n07qmfa9mtbr` remained queryable after a Railway service restart;
+the screenshot, `trace.zip`, `result.json`, `evidence.md`, and
+`issue-draft.json` remained downloadable from the same persistent `/data`
+volume.
+
+No Docker-compatible runtime was installed on the local verification machine,
+so no local Docker build or local container restart result is claimed.
 Install Docker Desktop or OrbStack, then run:
 
 ```bash
