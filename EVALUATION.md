@@ -1,6 +1,6 @@
 # FlowProof evaluation
 
-Generated 2026-07-18T06:41:48.872Z by executing real Playwright runs in seeded diagnosis mode.
+Generated 2026-07-18T06:54:52.379Z by executing real Playwright runs in seeded diagnosis mode.
 
 ## Measured summary
 
@@ -9,18 +9,18 @@ Generated 2026-07-18T06:41:48.872Z by executing real Playwright runs in seeded d
 - Correct invariant identified: **5/5**
 - Complete screenshot + trace evidence: **6/6**
 - Failure diagnoses citing relevant evidence: **5/5**
-- Mean browser execution duration: **2125ms**
+- Mean browser execution duration: **2117ms**
 
 ## Executed cases
 
 | Case                         | Expected | Observed | Correct invariant | Evidence | Diagnosis cites evidence | Duration |
 | ---------------------------- | -------- | -------- | ----------------- | -------- | ------------------------ | -------: |
-| UI drift                     | FAIL     | FAIL     | Yes               | Complete | Yes                      |   6335ms |
-| Missing business side effect | FAIL     | FAIL     | Yes               | Complete | Yes                      |   1486ms |
-| Permission drift             | FAIL     | FAIL     | Yes               | Complete | Yes                      |   1289ms |
-| Unexpected initial state     | FAIL     | FAIL     | Yes               | Complete | Yes                      |   1091ms |
-| Incorrect step sequence      | FAIL     | FAIL     | Yes               | Complete | Yes                      |   1251ms |
-| Non-breaking cosmetic change | PASS     | PASS     | N/A               | Complete | N/A                      |   1300ms |
+| UI drift                     | FAIL     | FAIL     | Yes               | Complete | Yes                      |   6383ms |
+| Missing business side effect | FAIL     | FAIL     | Yes               | Complete | Yes                      |   1515ms |
+| Permission drift             | FAIL     | FAIL     | Yes               | Complete | Yes                      |   1258ms |
+| Unexpected initial state     | FAIL     | FAIL     | Yes               | Complete | Yes                      |   1040ms |
+| Incorrect step sequence      | FAIL     | FAIL     | Yes               | Complete | Yes                      |   1226ms |
+| Non-breaking cosmetic change | PASS     | PASS     | N/A               | Complete | N/A                      |   1280ms |
 
 ## Method
 

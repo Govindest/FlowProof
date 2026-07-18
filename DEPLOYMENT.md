@@ -122,8 +122,8 @@ pnpm verify:persistence
 Verified on 2026-07-18 with Node.js 24.16 and pnpm 11.9 on macOS. The script
 built the demo target, started `pnpm start:railway` with production validation
 and a temporary persistent directory, created FAIL run
-`cmrpzvgyr0001jpqeqju2i7sr`, created repaired PASS run
-`cmrpzvik30004jpqe3ig0y3sk`, stopped the full process group, restarted against
+`cmrq0iabx0001jpiiu8wtoxmq`, created repaired PASS run
+`cmrq0ibwv0004jpii1dywtts2`, stopped the full process group, restarted against
 the same SQLite and artifact paths, and reopened both records plus screenshot,
 `trace.zip`, `result.json`, `evidence.md`, and `issue-draft.json`. Fixture state
 remained repaired. The script removes only its own temporary directory after

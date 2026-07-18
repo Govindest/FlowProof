@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T06:41:48.872Z",
+  "generatedAt": "2026-07-18T06:54:52.379Z",
   "model": "gpt-5.6",
   "providerMode": "seeded",
   "summary": {
@@ -9,7 +9,7 @@
     "correctInvariantIdentifications": 5,
     "evidencePacketsComplete": 6,
     "diagnosesReferencingEvidence": 5,
-    "averageDurationMs": 2125
+    "averageDurationMs": 2117
   },
   "cases": [
     {
@@ -17,7 +17,7 @@
       "category": "UI drift",
       "regression": "evaluation.ui-drift",
       "runbook": "offboard-contractor",
-      "runId": "cmrq00wn70001jpbb856ro15x",
+      "runId": "cmrq0hp8v0001jpfi73o0ymq3",
       "expectedResult": "FAIL",
       "observedResult": "FAIL",
       "expectationMet": true,
@@ -32,15 +32,15 @@
       "requiredEvidenceCaptured": true,
       "diagnosisReferencedRelevantEvidence": true,
       "diagnosisProvider": "seeded",
-      "executionDurationMs": 6335,
-      "artifactPath": "artifacts/runs/cmrq00wn70001jpbb856ro15x"
+      "executionDurationMs": 6383,
+      "artifactPath": "artifacts/runs/cmrq0hp8v0001jpfi73o0ymq3"
     },
     {
       "id": "missing-side-effect",
       "category": "Missing business side effect",
       "regression": "refund.missing-side-effect",
       "runbook": "refund-customer",
-      "runId": "cmrq011jk0003jpbbpz377m5l",
+      "runId": "cmrq0hu6i0003jpfi846nqaha",
       "expectedResult": "FAIL",
       "observedResult": "FAIL",
       "expectationMet": true,
@@ -51,15 +51,15 @@
       "requiredEvidenceCaptured": true,
       "diagnosisReferencedRelevantEvidence": true,
       "diagnosisProvider": "seeded",
-      "executionDurationMs": 1486,
-      "artifactPath": "artifacts/runs/cmrq011jk0003jpbbpz377m5l"
+      "executionDurationMs": 1515,
+      "artifactPath": "artifacts/runs/cmrq0hu6i0003jpfi846nqaha"
     },
     {
       "id": "permission-drift",
       "category": "Permission drift",
       "regression": "offboard.permission-drift",
       "runbook": "offboard-contractor",
-      "runId": "cmrq012p20005jpbbl8fmmlgp",
+      "runId": "cmrq0hvcs0005jpfi90jddsob",
       "expectedResult": "FAIL",
       "observedResult": "FAIL",
       "expectationMet": true,
@@ -70,15 +70,15 @@
       "requiredEvidenceCaptured": true,
       "diagnosisReferencedRelevantEvidence": true,
       "diagnosisProvider": "seeded",
-      "executionDurationMs": 1289,
-      "artifactPath": "artifacts/runs/cmrq012p20005jpbbl8fmmlgp"
+      "executionDurationMs": 1258,
+      "artifactPath": "artifacts/runs/cmrq0hvcs0005jpfi90jddsob"
     },
     {
       "id": "unexpected-initial-state",
       "category": "Unexpected initial state",
       "regression": "evaluation.unexpected-initial-state",
       "runbook": "refund-customer",
-      "runId": "cmrq013p30007jpbbkb2i3do4",
+      "runId": "cmrq0hwbx0007jpfibpvzg9o3",
       "expectedResult": "FAIL",
       "observedResult": "FAIL",
       "expectationMet": true,
@@ -93,15 +93,15 @@
       "requiredEvidenceCaptured": true,
       "diagnosisReferencedRelevantEvidence": true,
       "diagnosisProvider": "seeded",
-      "executionDurationMs": 1091,
-      "artifactPath": "artifacts/runs/cmrq013p30007jpbbkb2i3do4"
+      "executionDurationMs": 1040,
+      "artifactPath": "artifacts/runs/cmrq0hwbx0007jpfibpvzg9o3"
     },
     {
       "id": "incorrect-step-sequence",
       "category": "Incorrect step sequence",
       "regression": "evaluation.incorrect-sequence",
       "runbook": "refund-customer",
-      "runId": "cmrq014jm0009jpbbua70ggvk",
+      "runId": "cmrq0hx4z0009jpfivaf1tn15",
       "expectedResult": "FAIL",
       "observedResult": "FAIL",
       "expectationMet": true,
@@ -112,15 +112,15 @@
       "requiredEvidenceCaptured": true,
       "diagnosisReferencedRelevantEvidence": true,
       "diagnosisProvider": "seeded",
-      "executionDurationMs": 1251,
-      "artifactPath": "artifacts/runs/cmrq014jm0009jpbbua70ggvk"
+      "executionDurationMs": 1226,
+      "artifactPath": "artifacts/runs/cmrq0hx4z0009jpfivaf1tn15"
     },
     {
       "id": "cosmetic-change",
       "category": "Non-breaking cosmetic change",
       "regression": "evaluation.cosmetic-change",
       "runbook": "offboard-contractor",
-      "runId": "cmrq015in000bjpbbe082rdp0",
+      "runId": "cmrq0hy38000bjpfiatj5syf8",
       "expectedResult": "PASS",
       "observedResult": "PASS",
       "expectationMet": true,
@@ -131,8 +131,8 @@
       "requiredEvidenceCaptured": true,
       "diagnosisReferencedRelevantEvidence": null,
       "diagnosisProvider": null,
-      "executionDurationMs": 1300,
-      "artifactPath": "artifacts/runs/cmrq015in000bjpbbe082rdp0"
+      "executionDurationMs": 1280,
+      "artifactPath": "artifacts/runs/cmrq0hy38000bjpfiatj5syf8"
     }
   ]
 }
