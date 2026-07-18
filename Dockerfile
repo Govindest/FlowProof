@@ -18,6 +18,7 @@ COPY packages/core/package.json packages/core/package.json
 COPY packages/fixtures/package.json packages/fixtures/package.json
 COPY packages/github/package.json packages/github/package.json
 COPY prisma/schema.prisma prisma/schema.prisma
+COPY scripts/postinstall.ts scripts/postinstall.ts
 
 RUN NODE_ENV=development DATABASE_URL=file:/tmp/flowproof-build.db pnpm install --frozen-lockfile
 
