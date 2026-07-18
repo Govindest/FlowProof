@@ -136,8 +136,8 @@ the same SQLite and artifact paths, and reopened both records plus screenshot,
 remained repaired. The script removes only its own temporary directory after
 verification.
 
-Railway remotely built the root Dockerfile successfully with image digest
-`sha256:8db83a09bb7076adfe1f8ae1cc7dcfc49c443426d93ceb263077255e4f213df0`.
+Railway remotely built the root Dockerfile successfully with final image digest
+`sha256:f528545b4e63c0d538894aa07497110a193afc4149334e6a8d9344505a758ccd`.
 The hosted API returned all readiness checks healthy. Permission-drift FAIL run
 `cmrq4w7xp0001n07qrb31xhuq` and repaired PASS run
 `cmrq4wvre0004n07qmfa9mtbr` remained queryable after a Railway service restart;
